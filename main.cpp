@@ -5,7 +5,7 @@
 int main()
 {
 
-    Application test(1000,1000,20);
+    Application test(500,500,20,50);
     test.start();
 
     return 0;
