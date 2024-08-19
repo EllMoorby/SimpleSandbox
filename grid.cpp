@@ -63,22 +63,27 @@ void Grid::generateNextGrid() {
 			belowL = indexBelow(index);
 		}
 		
-		if (tile == true && index > ((rows - 1) * columns)) {
-			newGrid[index] = true;
-		}else if (tile == true && grid[below] != true) {
-			newGrid[below] = true;
-		} else if (tile == true) {
-			if (grid[belowR] != true) {
-				newGrid[belowR] = true;
-			}
-			else if (grid[belowL] != true) {
-				newGrid[belowL] = true;
-			}
-			else {
+		if (tile == true) {
+			if (index > ((rows - 1) * columns) - 1) {
 				newGrid[index] = true;
 			}
-			
+			else if (grid[below] != true && newGrid[below] != true) {
+				newGrid[below] = true;
+			}
+			else{
+				if (grid[belowR] != true && newGrid[belowR] != true) {
+					newGrid[belowR] = true;
+				}
+				else if (grid[belowL] != true && newGrid[belowL] != true) {
+					newGrid[belowL] = true;
+				}
+				else {
+					newGrid[index] = true;
+				}
+
+			}
 		}
+		
 		index++;
 	}
 	grid = newGrid;
