@@ -46,3 +46,6 @@ Windows
 ```
 .\build\bin\SimpleSandbox.exe
 ```
+
+### Controls
+Left mouse places sand
